@@ -1,0 +1,26 @@
+﻿cargo :     Updating crates.io index
+所在位置 行:1 字符: 89
++ ... d:\SOLO-2\AI_solo_coder_task_A_155\backend ; cargo check 2>&1 | Out-F ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Updating crates.io index:Stri 
+   ng) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+error: failed to select a version for `tower-http`.
+    ... required by package `urn-acoustics-backend v0.1.0 (D:\SOLO-2\AI_solo_co
+der_task_A_155\backend)`
+versions that meet the requirements `^0.5` are: 0.5.2, 0.5.1, 0.5.0
+
+package `urn-acoustics-backend` depends on `tower-http` with feature `serve-dir
+` but `tower-http` does not have that feature.
+help: available features: add-extension, async-compression, auth, base64, catch
+-panic, compression-br, compression-deflate, compression-full, compression-gzip
+, compression-zstd, cors, decompression-br, decompression-deflate, decompressio
+n-full, decompression-gzip, decompression-zstd, default, follow-redirect, fs, f
+ull, futures-util, httpdate, iri-string, limit, map-request-body, map-response-
+body, metrics, mime, mime_guess, normalize-path, percent-encoding, propagate-he
+ader, redirect, request-id, sensitive-headers, set-header, set-status, timeout,
+ tokio, tokio-util, tower, trace, tracing, util, uuid, validate-request
+
+
+failed to select a version for `tower-http` which could resolve this conflict

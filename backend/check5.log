@@ -1,0 +1,71 @@
+﻿cargo :     Updating crates.io index
+所在位置 行:1 字符: 89
++ ... d:\SOLO-2\AI_solo_coder_task_A_155\backend ; cargo check 2>&1 | Out-F ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Updating crates.io index:Stri 
+   ng) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+     Locking 5 packages to latest compatible versions
+      Adding http-range-header v0.4.2
+      Adding mime_guess v2.0.5
+      Adding tokio-util v0.7.18
+      Adding tower-http v0.5.2 (available: v0.7.0)
+      Adding unicase v2.9.0
+    Checking futures-sink v0.3.32
+   Compiling unicase v2.9.0
+    Checking bitflags v2.13.0
+    Checking http-range-header v0.4.2
+    Checking futures-channel v0.3.32
+    Checking flume v0.11.1
+    Checking tokio-util v0.7.18
+   Compiling mime_guess v2.0.5
+    Checking futures-util v0.3.32
+    Checking hyper v1.10.1
+    Checking hyper-util v0.1.20
+    Checking futures-executor v0.3.32
+    Checking hyper v0.14.32
+    Checking tower v0.5.3
+    Checking axum-core v0.4.5
+    Checking tokio-tungstenite v0.24.0
+    Checking rumqttc v0.23.0
+    Checking tokio-tungstenite v0.21.0
+    Checking futures v0.3.32
+    Checking tower-http v0.5.2
+    Checking axum v0.7.9
+    Checking hyper-tls v0.5.0
+    Checking clickhouse v0.11.6
+    Checking urn-acoustics-backend v0.1.0 (D:\SOLO-2\AI_solo_coder_task_A_155\b
+ackend)
+warning: unused import: `uuid::Uuid`
+ --> src\store.rs:7:5
+  |
+7 | use uuid::Uuid;
+  |     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> src\handlers.rs:163:9
+    |
+163 |     let mut resonator = HelmholtzResonator::new(
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+error[E0609]: no field `warning_threshold` on type `&AcousticAnalyzer`
+   --> src\acoustics.rs:611:30
+    |
+611 |         drift_percent > self.warning_threshold
+    |                              ^^^^^^^^^^^^^^^^^ unknown field
+    |
+    = note: available fields are: `speed_of_sound`, `drift_warning_threshold`, 
+`drift_critical_threshold`, `use_bem`
+
+For more information about this error, try `rustc --explain E0609`.
+warning: `urn-acoustics-backend` (bin "urn-acoustics-backend") generated 2 warn
+ings
+error: could not compile `urn-acoustics-backend` (bin "urn-acoustics-backend") 
+due to 1 previous error; 2 warnings emitted

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!-- ============================================================
+     ClickHouse 自定义配置 - 瓮听声学系统
+     挂载到 /etc/clickhouse-server/config.d/custom.xml
+     ============================================================ -->
+<yandex>
+    <!-- 网络监听 -->
+    <listen_host>0.0.0.0</listen_host>
+    <listen_host>::</listen_host>
+    <tcp_port>9000</tcp_port>
+    <http_port>8123</http_port>
+
+    <!-- 日志 -->
+    <logger>
+        <level>information</level>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>500M</size>
+        <count>10</count>
+        <console>1</console>
+    </logger>
+
+    <!-- 数据存储路径 (与默认 volume 挂载路径一致) -->
+    <path>/var/lib/clickhouse/</path>
+    <tmp_path>/var/lib/clickhouse/tmp/</tmp_path>
+    <user_files_path>/var/lib/clickhouse/user_files/</user_files_path>
+
+    <!-- 内存限制: 容器总内存的 70% -->
+    <max_server_memory_usage_to_ram_ratio>0.70</max_server_memory_usage_to_ram_ratio>
+
+    <!-- 标记缓存 (对 MergeTree 索引非常重要) -->
+    <mark_cache_size>5368709120</mark_cache_size>
+
+    <!-- 合并树设置 -->
+    <merge_tree>
+        <!-- 最大并发合并数 -->
+        <max_suspicious_broken_parts>10</max_suspicious_broken_parts>
+        <!-- 空闲时更积极地做合并 -->
+        <cnch_merge_selector_insert_stall_timeout_ms>5000</cnch_merge_selector_insert_stall_timeout_ms>
+        <!-- 允许的重复写入容忍度 -->
+        <replicated_deduplication_window>1000</replicated_deduplication_window>
+    </merge_tree>
+
+    <!-- 连接设置 -->
+    <max_connections>4096</max_connections>
+    <max_concurrent_queries>256</max_concurrent_queries>
+    <keep_alive_timeout>3</keep_alive_timeout>
+
+    <!-- 查询时间/内存限制 (单查询) -->
+    <max_execution_time>600</max_execution_time>
+    <max_memory_usage>100000000000</max_memory_usage>
+
+    <!-- 内置默认用户 -->
+    <users>
+        <default>
+            <password></password>
+            <networks>
+                <ip>::/0</ip>
+            </networks>
+            <profile>default</profile>
+            <quota>default</quota>
+            <access_management>1</access_management>
+        </default>
+    </users>
+
+    <!-- 默认查询 profile -->
+    <profiles>
+        <default>
+            <max_threads>8</max_threads>
+            <max_memory_usage>10000000000</max_memory_usage>
+            <use_uncompressed_cache>0</use_uncompressed_cache>
+            <load_balancing>random</load_balancing>
+        </default>
+    </profiles>
+
+    <!-- Quota -->
+    <quotas>
+        <default>
+            <interval>
+                <duration>3600</duration>
+                <queries>0</queries>
+                <errors>0</errors>
+                <result_rows>0</result_rows>
+                <read_rows>0</read_rows>
+                <execution_time>0</execution_time>
+            </interval>
+        </default>
+    </quotas>
+</yandex>

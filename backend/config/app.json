@@ -1,0 +1,45 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "static_dir": "../frontend"
+  },
+  "mqtt": {
+    "broker": "localhost",
+    "port": 1883,
+    "client_id": "urn_acoustics_backend",
+    "topic": "urn/sensors/#",
+    "keep_alive_secs": 60,
+    "username": null,
+    "password": null
+  },
+  "clickhouse": {
+    "url": "http://localhost:8123",
+    "database": "urn_acoustics",
+    "user": "default",
+    "password": ""
+  },
+  "localization": {
+    "sound_speed_soil": 1500.0,
+    "beamforming_resolution": 1.0,
+    "max_localization_distance": 500.0,
+    "localization_confidence_threshold": 0.3,
+    "beamforming_method": "MVDR",
+    "diagonal_loading": 0.001,
+    "multipath_suppression": true,
+    "min_active_devices": 3,
+    "recent_readings_per_device": 10
+  },
+  "alert": {
+    "frequency_drift_warning_percent": 5.0,
+    "localization_bias_warning_percent": 50.0,
+    "cooldown_seconds": 30,
+    "broadcast_channel_capacity": 256
+  },
+  "pipeline": {
+    "mqtt_to_acoustic_buffer": 64,
+    "acoustic_to_locator_buffer": 32,
+    "locator_to_alarm_buffer": 32,
+    "sensor_raw_to_db_buffer": 128
+  }
+}

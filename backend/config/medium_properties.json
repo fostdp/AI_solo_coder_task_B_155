@@ -1,0 +1,42 @@
+[
+  {
+    "medium_type": "dry_sand",
+    "display_name": "干燥沙",
+    "density": 1600.0,
+    "sound_speed": 300.0,
+    "attenuation_coeff": 0.5,
+    "depth_start": 0.0,
+    "thickness": 5.0,
+    "color": "#c9a46a"
+  },
+  {
+    "medium_type": "wet_sand",
+    "display_name": "湿润沙",
+    "density": 1900.0,
+    "sound_speed": 500.0,
+    "attenuation_coeff": 0.3,
+    "depth_start": 5.0,
+    "thickness": 15.0,
+    "color": "#a07840"
+  },
+  {
+    "medium_type": "clay",
+    "display_name": "黏土",
+    "density": 2200.0,
+    "sound_speed": 1800.0,
+    "attenuation_coeff": 0.15,
+    "depth_start": 20.0,
+    "thickness": 30.0,
+    "color": "#6b4423"
+  },
+  {
+    "medium_type": "limestone",
+    "display_name": "石灰岩",
+    "density": 2500.0,
+    "sound_speed": 3500.0,
+    "attenuation_coeff": 0.05,
+    "depth_start": 50.0,
+    "thickness": 50.0,
+    "color": "#8b8b8b"
+  }
+]

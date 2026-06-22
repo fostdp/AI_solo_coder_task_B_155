@@ -1,0 +1,45 @@
+# ===== Rust backend =====
+backend/target/
+**/*.rs.bk
+**/*.rs.bak
+Cargo.lock.bak
+
+# ===== Python simulator =====
+simulator/__pycache__/
+simulator/*.pyc
+simulator/.venv/
+simulator/venv/
+**/*.egg-info/
+.pytest_cache/
+
+# ===== Docker =====
+.dockerignore
+Dockerfile
+!docker/
+!docker-compose.yml
+
+# ===== Logs =====
+*.log
+logs/
+*.log.*
+
+# ===== IDE / OS =====
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ===== Env / secrets =====
+.env
+.env.local
+*.pem
+*.key
+*.crt
+
+# ===== ClickHouse / MQTT local data =====
+clickhouse_data/
+mosquitto_data/
+mosquitto_log/
+prometheus_data/

@@ -1,0 +1,40 @@
+# ============================================================
+# Prometheus 抓取配置 - 瓮听声学系统
+# ============================================================
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  scrape_timeout: 10s
+  external_labels:
+    cluster: urn-acoustics
+    environment: production
+
+alerting:
+  # 若启用 Alertmanager 可添加 alertmanagers 配置
+
+rule_files:
+  # - "alerts/*.yml"
+
+scrape_configs:
+
+  # ---------- Rust 后端: Prometheus 指标 ----------
+  - job_name: "urn-backend"
+    metrics_path: "/metrics"
+    scheme: http
+    static_configs:
+      - targets: ["backend:8080"]
+        labels:
+          service: "urn-acoustics-backend"
+          component: "rust-axum"
+
+  # ---------- ClickHouse (通过 HTTP /?query= 自定义指标查询) ----------
+  # 若需要更深度的 ClickHouse 指标，可配合 clickhouse-exporter:
+  # - job_name: "clickhouse"
+  #   static_configs:
+  #     - targets: ["clickhouse-exporter:9116"]
+
+  # ---------- Prometheus 自身 ----------
+  - job_name: "prometheus-self"
+    static_configs:
+      - targets: ["localhost:9090"]

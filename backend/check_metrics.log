@@ -1,0 +1,196 @@
+﻿cargo :     Updating crates.io index
+所在位置 行:1 字符: 89
++ ... d:\SOLO-2\AI_solo_coder_task_A_155\backend ; cargo check 2>&1 | Out-F ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Updating crates.io index:Stri 
+   ng) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+     Locking 54 packages to latest compatible versions
+      Adding adler2 v2.0.1
+      Adding ahash v0.8.12
+      Adding alloc-no-stdlib v2.0.4
+      Adding alloc-stdlib v0.2.4
+      Adding async-compression v0.4.42
+      Adding aws-lc-rs v1.17.0
+      Adding aws-lc-sys v0.41.0
+      Adding brotli v8.0.4
+      Adding brotli-decompressor v5.0.3
+      Adding cmake v0.1.58
+      Adding compression-codecs v0.4.38
+      Adding compression-core v0.4.32
+      Adding crc32fast v1.5.0
+      Adding crossbeam-epoch v0.9.18
+      Adding crossbeam-utils v0.8.21
+      Adding dunce v1.0.5
+      Adding equivalent v1.0.2
+      Adding flate2 v1.1.9
+      Adding fs_extra v1.3.0
+      Adding getrandom v0.3.4
+      Adding h2 v0.4.15
+      Adding hashbrown v0.17.1
+      Adding hermit-abi v0.5.2
+      Adding hyper-rustls v0.27.9
+      Adding indexmap v2.14.0
+      Adding ipnet v2.12.0
+      Adding jobserver v0.1.34
+      Adding metrics v0.23.1 (available: v0.24.6)
+      Adding metrics-exporter-prometheus v0.15.3 (available: v0.18.3)
+      Adding metrics-util v0.17.0
+      Adding miniz_oxide v0.8.9
+      Adding num_cpus v1.17.0
+      Adding portable-atomic v1.13.1
+      Adding quanta v0.12.6
+      Adding r-efi v5.3.0
+      Adding raw-cpuid v11.6.0
+      Adding rustls v0.23.40
+      Adding rustls-native-certs v0.8.4
+      Adding rustls-pki-types v1.14.1
+      Adding rustls-webpki v0.103.13
+      Adding simd-adler32 v0.3.9
+      Adding sketches-ddsketch v0.2.2
+      Adding subtle v2.6.1
+      Adding tokio-rustls v0.26.4
+      Adding wasip2 v1.0.4+wasi-0.2.12
+      Adding web-sys v0.3.102
+      Adding winapi v0.3.9
+      Adding winapi-i686-pc-windows-gnu v0.4.0
+      Adding winapi-x86_64-pc-windows-gnu v0.4.0
+      Adding wit-bindgen v0.57.1
+      Adding zeroize v1.9.0
+      Adding zstd v0.13.3
+      Adding zstd-safe v7.2.4
+      Adding zstd-sys v2.0.16+zstd.1.5.7
+   Compiling getrandom v0.3.4
+   Compiling cfg-if v1.0.4
+    Checking slab v0.4.12
+   Compiling fs_extra v1.3.0
+   Compiling dunce v1.0.5
+   Compiling pkg-config v0.3.33
+   Compiling aws-lc-rs v1.17.0
+    Checking zeroize v1.9.0
+    Checking tokio-util v0.7.18
+   Compiling ahash v0.8.12
+    Checking equivalent v1.0.2
+    Checking hashbrown v0.17.1
+   Compiling crossbeam-utils v0.8.21
+   Compiling zstd-safe v7.2.4
+   Compiling winapi-x86_64-pc-windows-gnu v0.4.0
+   Compiling crc32fast v1.5.0
+    Checking alloc-no-stdlib v2.0.4
+    Checking adler2 v2.0.1
+   Compiling winapi v0.3.9
+    Checking simd-adler32 v0.3.9
+    Checking futures-util v0.3.32
+   Compiling rustls v0.23.40
+    Checking subtle v2.6.1
+    Checking alloc-stdlib v0.2.4
+    Checking rustls-pki-types v1.14.1
+    Checking raw-cpuid v11.6.0
+    Checking miniz_oxide v0.8.9
+    Checking compression-core v0.4.32
+    Checking brotli-decompressor v5.0.3
+    Checking sketches-ddsketch v0.2.2
+    Checking num_cpus v1.17.0
+    Checking ipnet v2.12.0
+    Checking rustls-native-certs v0.8.4
+    Checking indexmap v2.14.0
+    Checking brotli v8.0.4
+    Checking futures-executor v0.3.32
+    Checking hyper v0.14.32
+    Checking tower v0.5.3
+    Checking axum-core v0.4.5
+    Checking tokio-tungstenite v0.24.0
+    Checking tokio-tungstenite v0.21.0
+    Checking futures v0.3.32
+   Compiling jobserver v0.1.34
+    Checking hashbrown v0.14.5
+    Checking metrics v0.23.1
+    Checking flate2 v1.1.9
+   Compiling cc v1.2.65
+    Checking crossbeam-epoch v0.9.18
+    Checking dashmap v5.5.3
+    Checking h2 v0.4.15
+    Checking quanta v0.12.6
+   Compiling cmake v0.1.58
+    Checking metrics-util v0.17.0
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling ring v0.17.14
+   Compiling lz4-sys v1.11.1+lz4-1.10.0
+   Compiling clickhouse-rs-cityhash-sys v0.1.2
+   Compiling aws-lc-sys v0.41.0
+    Checking hyper-tls v0.5.0
+    Checking hyper v1.10.1
+   Compiling rustls v0.21.12
+    Checking sct v0.7.1
+    Checking rustls-webpki v0.101.7
+    Checking hyper-util v0.1.20
+    Checking zstd v0.13.3
+    Checking compression-codecs v0.4.38
+    Checking async-compression v0.4.42
+    Checking lz4 v1.28.1
+    Checking axum v0.7.9
+    Checking tower-http v0.5.2
+    Checking clickhouse v0.11.6
+    Checking tokio-rustls v0.24.1
+    Checking rumqttc v0.23.0
+    Checking rustls-webpki v0.103.13
+    Checking tokio-rustls v0.26.4
+    Checking hyper-rustls v0.27.9
+    Checking metrics-exporter-prometheus v0.15.3
+    Checking urn-acoustics-backend v0.1.0 (D:\SOLO-2\AI_solo_coder_task_A_155\b
+ackend)
+error: no rules expected `,`
+  --> src\metrics.rs:42:5
+   |
+42 |     counter!("urn_alerts_total", 1, "severity" => severity.to_string());
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no
+ rules expected this token in macro call
+   |
+note: while trying to match `=>`
+  --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0
+.23.1\src\macros.rs:35:42
+   |
+35 |     ($name:literal, $($label_key:literal => $label_value:literal),*) => {{
+   |                                          ^^
+   = note: this error originates in the macro `$crate::counter` which comes fro
+m the expansion of the macro `counter` (in Nightly builds, run with -Z macro-ba
+cktrace for more info)
+
+error: no rules expected `,`
+  --> src\metrics.rs:47:5
+   |
+47 |     counter!("urn_db_writes_total", 1, "table" => table.to_string());
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no ru
+les expected this token in macro call
+   |
+note: while trying to match `=>`
+  --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0
+.23.1\src\macros.rs:35:42
+   |
+35 |     ($name:literal, $($label_key:literal => $label_value:literal),*) => {{
+   |                                          ^^
+   = note: this error originates in the macro `$crate::counter` which comes fro
+m the expansion of the macro `counter` (in Nightly builds, run with -Z macro-ba
+cktrace for more info)
+
+error: no rules expected `,`
+  --> src\metrics.rs:73:5
+   |
+73 |     histogram!("urn_pipeline_latency_ms", latency_ms, "stage" => stage.to_
+string());
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^ no rules expected this token in macro call
+   |
+note: while trying to match `=>`
+  --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0
+.23.1\src\macros.rs:48:36
+   |
+48 |     ($name:expr, $($label_key:expr => $label_value:expr),*) => {{
+   |                                    ^^
+   = note: this error originates in the macro `$crate::histogram` which comes f
+rom the expansion of the macro `histogram` (in Nightly builds, run with -Z macr
+o-backtrace for more info)
+
+error: could not compile `urn-acoustics-backend` (bin "urn-acoustics-backend") 
+due to 3 previous errors

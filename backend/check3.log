@@ -1,0 +1,370 @@
+﻿cargo :     Checking urn-acoustics-backend v0.1.0 (D:\SOLO-2\AI_solo_coder_task
+_A_155\backend)
+所在位置 行:1 字符: 89
++ ... d:\SOLO-2\AI_solo_coder_task_A_155\backend ; cargo check 2>&1 | Out-F ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Checking ur..._A_155\backend) 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+error[E0433]: cannot find module or crate `tower_http` in this scope
+  --> src\main.rs:27:5
+   |
+27 | use tower_http::cors::{Any, CorsLayer};
+   |     ^^^^^^^^^^ use of unresolved module or unlinked crate `tower_http`
+   |
+   = help: if you wanted to use a crate named `tower_http`, use `cargo add towe
+r_http` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `tower_http` in this scope
+  --> src\main.rs:28:5
+   |
+28 | use tower_http::services::ServeDir;
+   |     ^^^^^^^^^^ use of unresolved module or unlinked crate `tower_http`
+   |
+   = help: if you wanted to use a crate named `tower_http`, use `cargo add towe
+r_http` to add it to your `Cargo.toml`
+
+warning: unused import: `debug`
+  --> src\alarm_ws.rs:10:15
+   |
+10 | use tracing::{debug, error, info, warn};
+   |               ^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0560]: struct `MediumProperty` has no field named `display_name`
+   --> src\handlers.rs:127:13
+    |
+127 |             display_name: m.display_name.clone(),
+    |             ^^^^^^^^^^^^ `MediumProperty` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `MediumProperty` has no field named `depth_start`
+   --> src\handlers.rs:131:13
+    |
+131 |             depth_start: m.depth_start,
+    |             ^^^^^^^^^^^ `MediumProperty` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `MediumProperty` has no field named `thickness`
+   --> src\handlers.rs:132:13
+    |
+132 |             thickness: m.thickness,
+    |             ^^^^^^^^^ `MediumProperty` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no method named `check_resonance_anomaly` found for struct `Acous
+ticAnalyzer` in the current scope
+   --> src\handlers.rs:181:31
+    |
+181 |     let is_anomaly = analyzer.check_resonance_anomaly(frequency, theoreti
+cal_freq);
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^ method not found in
+ `AcousticAnalyzer`
+    |
+   ::: src\acoustics.rs:583:1
+    |
+583 | pub struct AcousticAnalyzer {
+    | --------------------------- method `check_resonance_anomaly` not found fo
+r this struct
+
+error[E0308]: mismatched types
+   --> src\store.rs:31:20
+    |
+ 31 |             .write(reading.timestamp)
+    |              ----- ^^^^^^^^^^^^^^^^^ expected `&_`, found `DateTime<Utc>`
+    |              |
+    |              arguments to this method are incorrect
+    |
+    = note: expected reference `&_`
+                  found struct `DateTime<Utc>`
+note: method defined here
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\insert.rs:154:12
+    |
+154 |     pub fn write<'a>(&'a mut self, row: &T) -> impl Future<Output = Resul
+t<()>> + 'a + Send
+    |            ^^^^^
+help: consider borrowing here
+    |
+ 31 |             .write(&reading.timestamp)
+    |                    +
+
+error[E0599]: no method named `write` found for opaque type `impl Future<Output
+ = Result<(), Error>> + Send` in the current scope
+  --> src\store.rs:32:14
+   |
+30 |           inserter
+   |           --------
+   |           |
+   |  _________method `write` is available on `&mut Insert<_>`
+   | |
+31 | |             .write(reading.timestamp)
+32 | |             .write(reading.device_id)
+   | |             -^^^^^ method not found in `impl Future<Output = Result<(), 
+Error>> + Send`
+   | |_____________|
+   |
+   |
+   = note: the full name for the type has been written to 'D:\SOLO-2\AI_solo_co
+der_task_A_155\backend\target\debug\deps\urn_acoustics_backend-4c1c080928bec50c
+.long-type-14628882263679008412.txt'
+   = note: consider using `--verbose` to print the full type name to the consol
+e
+
+error[E0308]: mismatched types
+   --> src\store.rs:53:20
+    |
+ 53 |             .write(analysis.timestamp)
+    |              ----- ^^^^^^^^^^^^^^^^^^ expected `&_`, found `DateTime<Utc>
+`
+    |              |
+    |              arguments to this method are incorrect
+    |
+    = note: expected reference `&_`
+                  found struct `DateTime<Utc>`
+note: method defined here
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\insert.rs:154:12
+    |
+154 |     pub fn write<'a>(&'a mut self, row: &T) -> impl Future<Output = Resul
+t<()>> + 'a + Send
+    |            ^^^^^
+help: consider borrowing here
+    |
+ 53 |             .write(&analysis.timestamp)
+    |                    +
+
+error[E0599]: no method named `write` found for opaque type `impl Future<Output
+ = Result<(), Error>> + Send` in the current scope
+  --> src\store.rs:54:14
+   |
+52 |           inserter
+   |           --------
+   |           |
+   |  _________method `write` is available on `&mut Insert<_>`
+   | |
+53 | |             .write(analysis.timestamp)
+54 | |             .write(analysis.device_id)
+   | |             -^^^^^ method not found in `impl Future<Output = Result<(), 
+Error>> + Send`
+   | |_____________|
+   |
+   |
+   = note: the full name for the type has been written to 'D:\SOLO-2\AI_solo_co
+der_task_A_155\backend\target\debug\deps\urn_acoustics_backend-4c1c080928bec50c
+.long-type-14628882263679008412.txt'
+   = note: consider using `--verbose` to print the full type name to the consol
+e
+
+error[E0308]: mismatched types
+   --> src\store.rs:78:20
+    |
+ 78 |             .write(loc.timestamp)
+    |              ----- ^^^^^^^^^^^^^ expected `&_`, found `DateTime<Utc>`
+    |              |
+    |              arguments to this method are incorrect
+    |
+    = note: expected reference `&_`
+                  found struct `DateTime<Utc>`
+note: method defined here
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\insert.rs:154:12
+    |
+154 |     pub fn write<'a>(&'a mut self, row: &T) -> impl Future<Output = Resul
+t<()>> + 'a + Send
+    |            ^^^^^
+help: consider borrowing here
+    |
+ 78 |             .write(&loc.timestamp)
+    |                    +
+
+error[E0599]: no method named `write` found for opaque type `impl Future<Output
+ = Result<(), Error>> + Send` in the current scope
+  --> src\store.rs:79:14
+   |
+77 |           inserter
+   |           --------
+   |           |
+   |  _________method `write` is available on `&mut Insert<_>`
+   | |
+78 | |             .write(loc.timestamp)
+79 | |             .write(loc.source_id)
+   | |             -^^^^^ method not found in `impl Future<Output = Result<(), 
+Error>> + Send`
+   | |_____________|
+   |
+   |
+   = note: the full name for the type has been written to 'D:\SOLO-2\AI_solo_co
+der_task_A_155\backend\target\debug\deps\urn_acoustics_backend-4c1c080928bec50c
+.long-type-11020269549291305311.txt'
+   = note: consider using `--verbose` to print the full type name to the consol
+e
+
+error[E0308]: mismatched types
+   --> src\store.rs:101:20
+    |
+101 |             .write(alert.timestamp)
+    |              ----- ^^^^^^^^^^^^^^^ expected `&_`, found `DateTime<Utc>`
+    |              |
+    |              arguments to this method are incorrect
+    |
+    = note: expected reference `&_`
+                  found struct `DateTime<Utc>`
+note: method defined here
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\insert.rs:154:12
+    |
+154 |     pub fn write<'a>(&'a mut self, row: &T) -> impl Future<Output = Resul
+t<()>> + 'a + Send
+    |            ^^^^^
+help: consider borrowing here
+    |
+101 |             .write(&alert.timestamp)
+    |                    +
+
+error[E0599]: no method named `write` found for opaque type `impl Future<Output
+ = Result<(), Error>> + Send` in the current scope
+   --> src\store.rs:102:14
+    |
+100 |           inserter
+    |           --------
+    |           |
+    |  _________method `write` is available on `&mut Insert<_>`
+    | |
+101 | |             .write(alert.timestamp)
+102 | |             .write(alert.alert_id)
+    | |             -^^^^^ method not found in `impl Future<Output = Result<(),
+ Error>> + Send`
+    | |_____________|
+    |
+    |
+    = note: the full name for the type has been written to 'D:\SOLO-2\AI_solo_c
+oder_task_A_155\backend\target\debug\deps\urn_acoustics_backend-4c1c080928bec50
+c.long-type-14628882263679008412.txt'
+    = note: consider using `--verbose` to print the full type name to the conso
+le
+
+error[E0277]: the trait bound `SourceLocalizationResult: Row` is not satisfied
+   --> src\store.rs:191:26
+    |
+191 |             .fetch_all::<SourceLocalizationResult>()
+    |              ---------   ^^^^^^^^^^^^^^^^^^^^^^^^ unsatisfied trait bound
+    |              |
+    |              required by a bound introduced by this call
+    |
+help: the trait `clickhouse::row::Primitive` is not implemented for `SourceLoca
+lizationResult`
+   --> src\models.rs:44:1
+    |
+ 44 | pub struct SourceLocalizationResult {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: the following other types implement trait `clickhouse::row::Primiti
+ve`:
+              ()
+              bool
+              f32
+              f64
+              i128
+              i16
+              i32
+              i64
+            and 9 others
+    = note: required for `SourceLocalizationResult` to implement `Row`
+note: required by a bound in `clickhouse::query::Query::fetch_all`
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\query.rs:106:12
+    |
+104 |     pub async fn fetch_all<T>(self) -> Result<Vec<T>>
+    |                  --------- required by a bound in this associated functio
+n
+105 |     where
+106 |         T: Row + for<'b> Deserialize<'b>,
+    |            ^^^ required by this bound in `Query::fetch_all`
+
+error[E0277]: the trait bound `SourceLocalizationResult: clickhouse::row::Primi
+tive` is not satisfied
+   --> src\store.rs:189:23
+    |
+189 |           let results = self.client
+    |  _______________________^
+190 | |             .query(&query)
+191 | |             .fetch_all::<SourceLocalizationResult>()
+    | |____________________________________________________^ unsatisfied trait 
+bound
+    |
+help: the trait `clickhouse::row::Primitive` is not implemented for `SourceLoca
+lizationResult`
+   --> src\models.rs:44:1
+    |
+ 44 | pub struct SourceLocalizationResult {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: the following other types implement trait `clickhouse::row::Primiti
+ve`:
+              ()
+              bool
+              f32
+              f64
+              i128
+              i16
+              i32
+              i64
+            and 9 others
+    = note: required for `SourceLocalizationResult` to implement `Row`
+note: required by a bound in `clickhouse::query::Query::fetch_all`
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\query.rs:106:12
+    |
+104 |     pub async fn fetch_all<T>(self) -> Result<Vec<T>>
+    |                  --------- required by a bound in this associated functio
+n
+105 |     where
+106 |         T: Row + for<'b> Deserialize<'b>,
+    |            ^^^ required by this bound in `Query::fetch_all`
+
+error[E0277]: the trait bound `SourceLocalizationResult: clickhouse::row::Primi
+tive` is not satisfied
+   --> src\store.rs:192:14
+    |
+192 |             .await?;
+    |              ^^^^^ unsatisfied trait bound
+    |
+help: the trait `clickhouse::row::Primitive` is not implemented for `SourceLoca
+lizationResult`
+   --> src\models.rs:44:1
+    |
+ 44 | pub struct SourceLocalizationResult {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: the following other types implement trait `clickhouse::row::Primiti
+ve`:
+              ()
+              bool
+              f32
+              f64
+              i128
+              i16
+              i32
+              i64
+            and 9 others
+    = note: required for `SourceLocalizationResult` to implement `Row`
+note: required by a bound in `clickhouse::query::Query::fetch_all`
+   --> C:\Users\y\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\clickhou
+se-0.11.6\src\query.rs:106:12
+    |
+104 |     pub async fn fetch_all<T>(self) -> Result<Vec<T>>
+    |                  --------- required by a bound in this associated functio
+n
+105 |     where
+106 |         T: Row + for<'b> Deserialize<'b>,
+    |            ^^^ required by this bound in `Query::fetch_all`
+
+Some errors have detailed explanations: E0277, E0308, E0433, E0560, E0599.
+For more information about an error, try `rustc --explain E0277`.
+warning: `urn-acoustics-backend` (bin "urn-acoustics-backend") generated 1 warn
+ing
+error: could not compile `urn-acoustics-backend` (bin "urn-acoustics-backend") 
+due to 17 previous errors; 1 warning emitted

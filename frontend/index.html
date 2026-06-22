@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古代瓮听声学共振与声源定位仿真系统</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="top-bar">
+            <h1>古代瓮听声学共振与声源定位仿真系统</h1>
+            <div class="status">
+                <span id="connection-status" class="status-badge disconnected">未连接</span>
+                <span id="update-time">--:--:--</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="left-panel">
+                <section class="panel-section">
+                    <h2>瓮听设备</h2>
+                    <div id="device-list" class="device-list"></div>
+                </section>
+
+                <section class="panel-section">
+                    <h2>声学共振分析</h2>
+                    <div class="resonance-info">
+                        <div class="info-row">
+                            <span>当前频率</span>
+                            <span id="current-freq">-- Hz</span>
+                        </div>
+                        <div class="info-row">
+                            <span>理论共振频率</span>
+                            <span id="theoretical-freq">-- Hz</span>
+                        </div>
+                        <div class="info-row">
+                            <span>频率漂移</span>
+                            <span id="freq-drift" class="warning">-- %</span>
+                        </div>
+                        <div class="info-row">
+                            <span>放大增益</span>
+                            <span id="gain-db">-- dB</span>
+                        </div>
+                        <div class="info-row">
+                            <span>品质因数Q</span>
+                            <span id="quality-factor">--</span>
+                        </div>
+                    </div>
+                    <div class="resonance-chart-wrapper">
+                        <canvas id="resonance-canvas" width="280" height="150"></canvas>
+                    </div>
+                </section>
+
+                <section class="panel-section">
+                    <h2>声源定位</h2>
+                    <div class="localization-info">
+                        <div class="info-row">
+                            <span>方位角</span>
+                            <span id="bearing-angle">-- °</span>
+                        </div>
+                        <div class="info-row">
+                            <span>仰角</span>
+                            <span id="elevation-angle">-- °</span>
+                        </div>
+                        <div class="info-row">
+                            <span>估计距离</span>
+                            <span id="distance-est">-- m</span>
+                        </div>
+                        <div class="info-row">
+                            <span>置信度</span>
+                            <span id="confidence">-- %</span>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="center-panel">
+                <div class="viewport">
+                    <div id="three-container"></div>
+                    <canvas id="wave-overlay"></canvas>
+                    <div class="compass-overlay">
+                        <canvas id="compass-canvas" width="200" height="200"></canvas>
+                    </div>
+                    <div class="legend">
+                        <div><span class="legend-color device"></span>瓮听设备</div>
+                        <div><span class="legend-color source"></span>声源位置</div>
+                        <div><span class="legend-color wave"></span>声波传播</div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="right-panel">
+                <section class="panel-section">
+                    <h2>实时告警</h2>
+                    <div id="alert-list" class="alert-list"></div>
+                </section>
+
+                <section class="panel-section">
+                    <h2>传感器实时数据</h2>
+                    <div class="sensor-info">
+                        <div class="info-row">
+                            <span>声压级(SPL)</span>
+                            <span id="spl-value">-- dB</span>
+                        </div>
+                        <div class="info-row">
+                            <span>介质密度</span>
+                            <span id="density-value">-- kg/m³</span>
+                        </div>
+                        <div class="info-row">
+                            <span>温度</span>
+                            <span id="temp-value">-- °C</span>
+                        </div>
+                        <div class="info-row">
+                            <span>湿度</span>
+                            <span id="humidity-value">-- %</span>
+                        </div>
+                    </div>
+                    <canvas id="spl-canvas" class="sparkline" width="280" height="80"></canvas>
+                </section>
+
+                <section class="panel-section">
+                    <h2>系统控制</h2>
+                    <div class="controls">
+                        <button id="btn-toggle-wave">停止波纹动画</button>
+                        <button id="btn-reset-view">重置视角</button>
+                        <button id="btn-simulate-event">模拟敌军来袭</button>
+                    </div>
+                </section>
+
+                <section class="panel-section">
+                    <h2>多层介质声射线追踪</h2>
+                    <div class="ray-tracing-wrapper">
+                        <canvas id="ray-tracing-canvas" width="300" height="220"></canvas>
+                    </div>
+                    <div class="layer-legend">
+                        <div><span class="layer-swatch" style="background:#c9a46a"></span>干燥沙层</div>
+                        <div><span class="layer-swatch" style="background:#a07840"></span>湿润沙层</div>
+                        <div><span class="layer-swatch" style="background:#6b4423"></span>黏土层</div>
+                        <div><span class="layer-swatch" style="background:#8b8b8b"></span>石灰岩层</div>
+                    </div>
+                    <div class="ray-info">
+                        <div class="info-row">
+                            <span>反射次数</span>
+                            <span id="ray-reflections">--</span>
+                        </div>
+                        <div class="info-row">
+                            <span>折射次数</span>
+                            <span id="ray-refractions">--</span>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+
+    <script src="ground_listening_3d.js"></script>
+    <script src="acoustic_panel.js"></script>
+</body>
+</html>

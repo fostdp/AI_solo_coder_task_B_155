@@ -1,0 +1,366 @@
+﻿cargo :     Checking urn-acoustics-backend v0.1.0 (D:\SOLO-2\AI_solo_coder_task
+_A_155\backend)
+所在位置 行:1 字符: 89
++ ... d:\SOLO-2\AI_solo_coder_task_A_155\backend ; cargo check 2>&1 | Out-F ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Checking ur..._A_155\backend) 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: unused import: `uuid::Uuid`
+ --> src\store.rs:7:5
+  |
+7 | use uuid::Uuid;
+  |     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> src\handlers.rs:163:9
+    |
+163 |     let mut resonator = HelmholtzResonator::new(
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `analyzer` is never used
+   --> src\acoustic_simulator.rs:126:12
+    |
+ 15 | impl AcousticSimulator {
+    | ---------------------- method in this implementation
+...
+126 |     pub fn analyzer(&self) -> &AcousticAnalyzer {
+    |            ^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `wall_thickness` is never read
+  --> src\acoustics.rs:19:9
+   |
+13 | pub struct HelmholtzResonator {
+   |            ------------------ field in this struct
+...
+19 |     pub wall_thickness: f64,
+   |         ^^^^^^^^^^^^^^
+
+warning: fields `num_boundary_elements` and `neck_discretization` are never rea
+d
+   --> src\acoustics.rs:119:5
+    |
+118 | pub struct BEMCorrection {
+    |            ------------- fields in this struct
+119 |     num_boundary_elements: usize,
+    |     ^^^^^^^^^^^^^^^^^^^^^
+120 |     neck_discretization: Vec<(f64, f64, f64)>,
+    |     ^^^^^^^^^^^^^^^^^^^
+
+warning: field `0` is never read
+   --> src\acoustics.rs:135:11
+    |
+135 |     Axial(u32),
+    |     ----- ^^^
+    |     |
+    |     field in this variant
+    |
+    = note: `CavityModeType` has derived impls for the traits `Clone` and `Debu
+g`, but these are intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning w
+hile preserving the field numbering, or remove the field
+    |
+135 -     Axial(u32),
+135 +     Axial(()),
+    |
+
+warning: field `0` is never read
+   --> src\acoustics.rs:136:15
+    |
+136 |     Azimuthal(u32),
+    |     --------- ^^^
+    |     |
+    |     field in this variant
+    |
+    = note: `CavityModeType` has derived impls for the traits `Clone` and `Debu
+g`, but these are intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning w
+hile preserving the field numbering, or remove the field
+    |
+136 -     Azimuthal(u32),
+136 +     Azimuthal(()),
+    |
+
+warning: field `0` is never read
+   --> src\acoustics.rs:137:12
+    |
+137 |     Radial(u32),
+    |     ------ ^^^
+    |     |
+    |     field in this variant
+    |
+    = note: `CavityModeType` has derived impls for the traits `Clone` and `Debu
+g`, but these are intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning w
+hile preserving the field numbering, or remove the field
+    |
+137 -     Radial(u32),
+137 +     Radial(()),
+    |
+
+warning: method `radiation_impedance` is never used
+   --> src\acoustics.rs:292:12
+    |
+140 | impl BEMCorrection {
+    | ------------------ method in this implementation
+...
+292 |     pub fn radiation_impedance(&self, urn: &HelmholtzResonator, frequency
+: f64) -> (f64, f64) {
+    |            ^^^^^^^^^^^^^^^^^^^
+
+warning: function `bessel_j1` is never used
+   --> src\acoustics.rs:315:4
+    |
+315 | fn bessel_j1(x: f64) -> f64 {
+    |    ^^^^^^^^^
+
+warning: function `struve_h1` is never used
+   --> src\acoustics.rs:322:4
+    |
+322 | fn struve_h1(x: f64) -> f64 {
+    |    ^^^^^^^^^
+
+warning: struct `RayTracingModel` is never constructed
+   --> src\acoustics.rs:330:12
+    |
+330 | pub struct RayTracingModel {
+    |            ^^^^^^^^^^^^^^^
+
+warning: struct `MediumLayer` is never constructed
+   --> src\acoustics.rs:337:12
+    |
+337 | pub struct MediumLayer {
+    |            ^^^^^^^^^^^
+
+warning: associated items `new`, `snells_law`, `reflection_coefficient`, `trans
+mission_coefficient`, `trace_ray`, and `compute_wavefront_intensity` are never 
+used
+   --> src\acoustics.rs:346:12
+    |
+345 | impl RayTracingModel {
+    | -------------------- associated items in this implementation
+346 |     pub fn new() -> Self {
+    |            ^^^
+...
+359 |     pub fn snells_law(angle_incidence: f64, v1: f64, v2: f64) -> Option<f
+64> {
+    |            ^^^^^^^^^^
+...
+368 |     pub fn reflection_coefficient(
+    |            ^^^^^^^^^^^^^^^^^^^^^^
+...
+386 |     pub fn transmission_coefficient(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^
+...
+397 |     pub fn trace_ray(&self, origin: (f64, f64), angle: f64, frequency: f6
+4) -> Vec<RayPathPoint> {
+    |            ^^^^^^^^^
+...
+554 |     pub fn compute_wavefront_intensity(&self, distance: f64, depth: f64, 
+frequency: f64) -> f64 {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `RayPathPoint` is never constructed
+   --> src\acoustics.rs:575:12
+    |
+575 | pub struct RayPathPoint {
+    |            ^^^^^^^^^^^^
+
+warning: fields `speed_of_sound` and `drift_critical_threshold` are never read
+   --> src\acoustics.rs:584:5
+    |
+583 | pub struct AcousticAnalyzer {
+    |            ---------------- fields in this struct
+584 |     speed_of_sound: f64,
+    |     ^^^^^^^^^^^^^^
+585 |     drift_warning_threshold: f64,
+586 |     drift_critical_threshold: f64,
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `analyze`, `is_critical_drift`, and `is_warning_drift` are nev
+er used
+   --> src\acoustics.rs:614:12
+    |
+590 | impl AcousticAnalyzer {
+    | --------------------- methods in this implementation
+...
+614 |     pub fn analyze(
+    |            ^^^^^^^
+...
+658 |     pub fn is_critical_drift(&self, drift_percent: f64) -> bool {
+    |            ^^^^^^^^^^^^^^^^^
+...
+662 |     pub fn is_warning_drift(&self, drift_percent: f64) -> bool {
+    |            ^^^^^^^^^^^^^^^^
+
+warning: struct `WavePropagation` is never constructed
+   --> src\acoustics.rs:667:12
+    |
+667 | pub struct WavePropagation {
+    |            ^^^^^^^^^^^^^^^
+
+warning: associated items `new`, `travel_time`, `amplitude_attenuation`, and `p
+hase_shift` are never used
+   --> src\acoustics.rs:673:12
+    |
+672 | impl WavePropagation {
+    | -------------------- associated items in this implementation
+673 |     pub fn new(speed: f64, attenuation_coeff: f64) -> Self {
+    |            ^^^
+...
+677 |     pub fn travel_time(&self, distance: f64) -> f64 {
+    |            ^^^^^^^^^^^
+...
+681 |     pub fn amplitude_attenuation(&self, initial_amplitude: f64, distance:
+ f64) -> f64 {
+    |            ^^^^^^^^^^^^^^^^^^^^^
+...
+687 |     pub fn phase_shift(&self, distance: f64, frequency: f64) -> f64 {
+    |            ^^^^^^^^^^^
+
+warning: associated function `load_from_dir` is never used
+   --> src\config_loader.rs:120:12
+    |
+111 | impl ConfigBundle {
+    | ----------------- associated function in this implementation
+...
+120 |     pub fn load_from_dir(dir: &Path) -> Result<Self, Box<dyn std::error::
+Error>> {
+    |            ^^^^^^^^^^^^^
+
+warning: field `config` is never read
+  --> src\handlers.rs:20:9
+   |
+16 | pub struct AppState {
+   |            -------- field in this struct
+...
+20 |     pub config: AppConfig,
+   |         ^^^^^^
+   |
+   = note: `AppState` has a derived impl for the trait `Clone`, but this is int
+entionally ignored during dead code analysis
+
+warning: field `confidence_threshold` is never read
+  --> src\localization.rs:18:9
+   |
+14 | pub struct Beamformer {
+   |            ---------- field in this struct
+...
+18 |     pub confidence_threshold: f64,
+   |         ^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `TDOALocalizer` is never constructed
+   --> src\localization.rs:553:12
+    |
+553 | pub struct TDOALocalizer {
+    |            ^^^^^^^^^^^^^
+
+warning: associated items `new`, `multilaterate_2d`, `calculate_tdoa_error`, an
+d `dist` are never used
+   --> src\localization.rs:558:12
+    |
+557 | impl TDOALocalizer {
+    | ------------------ associated items in this implementation
+558 |     pub fn new(sound_speed: f64) -> Self {
+    |            ^^^
+...
+562 |     pub fn multilaterate_2d(
+    |            ^^^^^^^^^^^^^^^^
+...
+598 |     fn calculate_tdoa_error(
+    |        ^^^^^^^^^^^^^^^^^^^^
+...
+622 |     fn dist(device: &UrnDevice, x: f64, y: f64, z: f64) -> f64 {
+    |        ^^^^
+
+warning: enum `PipelineMessage` is never used
+ --> src\pipeline.rs:5:10
+  |
+5 | pub enum PipelineMessage {
+  |          ^^^^^^^^^^^^^^^
+
+warning: field `received_at` is never read
+  --> src\pipeline.rs:16:9
+   |
+13 | pub struct ValidSensorReading {
+   |            ------------------ field in this struct
+...
+16 |     pub received_at: chrono::DateTime<chrono::Utc>,
+   |         ^^^^^^^^^^^
+   |
+   = note: `ValidSensorReading` has derived impls for the traits `Clone` and `D
+ebug`, but these are intentionally ignored during dead code analysis
+
+warning: field `contributing_devices` is never read
+  --> src\pipeline.rs:29:9
+   |
+27 | pub struct LocalizationJobResult {
+   |            --------------------- field in this struct
+28 |     pub result: SourceLocalizationResult,
+29 |     pub contributing_devices: Vec<u32>,
+   |         ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `LocalizationJobResult` has derived impls for the traits `Clone` and
+ `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: method `beamformer` is never used
+   --> src\source_locator.rs:133:12
+    |
+ 23 | impl SourceLocator {
+    | ------------------ method in this implementation
+...
+133 |     pub fn beamformer(&self) -> &Beamformer {
+    |            ^^^^^^^^^^
+
+warning: field `database` is never read
+  --> src\store.rs:32:5
+   |
+30 | pub struct ClickHouseStore {
+   |            --------------- field in this struct
+31 |     client: Client,
+32 |     database: String,
+   |     ^^^^^^^^
+   |
+   = note: `ClickHouseStore` has a derived impl for the trait `Clone`, but this
+ is intentionally ignored during dead code analysis
+
+warning: methods `get_devices` and `get_medium_properties` are never used
+   --> src\store.rs:100:18
+    |
+ 35 | impl ClickHouseStore {
+    | -------------------- methods in this implementation
+...
+100 |     pub async fn get_devices(&self) -> Result<Vec<UrnDevice>, clickhouse:
+:error::Error> {
+    |                  ^^^^^^^^^^^
+...
+134 |     pub async fn get_medium_properties(&self) -> Result<Vec<MediumPropert
+y>, clickhouse::error::Error> {
+    |                  ^^^^^^^^^^^^^^^^^^^^^
+
+warning: type alias `SharedStore` is never used
+   --> src\store.rs:185:10
+    |
+185 | pub type SharedStore = Arc<Mutex<ClickHouseStore>>;
+    |          ^^^^^^^^^^^
+
+warning: function `create_ws_message` is never used
+  --> src\websocket.rs:73:8
+   |
+73 | pub fn create_ws_message(message_type: &str, data: serde_json::Value) -> W
+ebSocketMessage {
+   |        ^^^^^^^^^^^^^^^^^
+
+warning: `urn-acoustics-backend` (bin "urn-acoustics-backend") generated 32 war
+nings (run `cargo fix --bin "urn-acoustics-backend" -p urn-acoustics-backend` t
+o apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.10s

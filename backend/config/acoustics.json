@@ -1,0 +1,20 @@
+{
+  "speed_of_sound_air": 343.0,
+  "default_urn_volume": 0.05,
+  "default_neck_radius": 0.05,
+  "default_neck_length": 0.1,
+  "default_wall_thickness": 0.01,
+  "default_rim_flange_width": 0.01,
+  "default_shape": "Ellipsoidal",
+  "drift_warning_threshold_percent": 5.0,
+  "drift_critical_threshold_percent": 15.0,
+  "bem_enabled": true,
+  "bem_boundary_elements": 36,
+  "kinematic_viscosity": 1.5e-5,
+  "air_density": 1.21,
+  "quality_factor_min": 5.0,
+  "quality_factor_max": 80.0,
+  "reference_spl_db": 94.0,
+  "reference_spl_distance_m": 1.0,
+  "spl_attenuation_db_per_octave": 6.0
+}
